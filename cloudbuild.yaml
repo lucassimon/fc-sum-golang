@@ -2,10 +2,12 @@ steps:
     - id: "Test"
       name: "gcr.io/cloud-builders/go:alpine"
       args: ["test", "fcsum"]
+      env: ["GOPATH=."]
 
     - id: "Build"
       name: "gcr.io/cloud-builders/go:alpine"
       args: ["build", "-o", "build/sum", "./src/fcsum"]
+      env: ["GOPATH=."]
 
     - id: "Create image"
       name: "gcr.io/cloud-builders/docker"
@@ -15,11 +17,6 @@ steps:
           - "--tag=gcr.io/$PROJECT_ID/fc-sum-golang:1.0"
           - "--file=Dockerfile"
           - "."
-
-options:
-    env:
-        - GO111MODULE=on
-        - GOPATH=.
 
 images:
     - "gcr.io/$PROJECT_ID/fc-sum-golang:latest"
