@@ -1,3 +1,3 @@
-# FC SUM FOLANG
+# FC SUM GOLANG
 
 Just test git flow
