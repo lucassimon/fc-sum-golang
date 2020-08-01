@@ -1,7 +1,7 @@
 steps:
     - id: "Test"
       name: "gcr.io/cloud-builders/go:alpine"
-      args: ["test", "./src/fcsum"]
+      args: ["test", "fcsum"]
 
     - id: "Build"
       name: "gcr.io/cloud-builders/go:alpine"
